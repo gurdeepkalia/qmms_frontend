@@ -1,0 +1,62 @@
+<div *ngIf = "query">
+
+
+<div class="row">
+        <div class="col-xs-12">
+            <button type = "button" class = "btn btn-primary" (click)="onEditClick()">Edit</button>
+            <button type = "button" class = "btn btn-danger" (click)="onDeleteClick()">Delete</button>
+            <button type = "button" class = "btn btn-success" (click)="onGenerateSQSClick()">Generate SQS</button>
+        </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="jumbotron">
+            <h1>Query Details :</h1>
+                <dl class="dl-horizontal">
+                        <dt>Query Id</dt>
+                        <dd>{{query.queryId}}</dd>
+                        <dt>Query</dt>
+                        <dd>{{query.query}}</dd>
+                        <dt>Frequency</dt>
+                        <dd>{{query.freq}}</dd>
+                        <dt>Status</dt>
+                        <dd>{{query.status}}</dd>
+                        <dt>Optymyze Version</dt>
+                        <dd>{{query.optyVer}}</dd>
+                        <dt>Inserted on</dt>
+                        <dd>{{query.insDate}}</dd>
+                        <dt>Last Update</dt>
+                        <dd>{{query.updDate}}</dd>
+                </dl>
+                
+        </div>
+    </div>
+</div>
+<div class="row">
+        <div class="col-xs-12">
+            <div class="jumbotron">
+                <h3>Attributes :</h3>
+                <table class="table table-light">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Data Type</th>
+                            <th>Column Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let attribute of getAttributes()">
+                            <td>{{attribute.queryAttribute}}</td>
+                            <td>{{attribute.attributeDatatype}}</td>
+                            <td>{{attribute.columnNumber}}</td>
+                            
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</div>

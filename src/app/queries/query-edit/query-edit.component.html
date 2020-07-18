@@ -1,0 +1,96 @@
+<div *ngIf="queryForm != null" class="row">
+        <div class="col-xs-12">
+            <form [formGroup]="queryForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type = "submit" class = "btn btn-success">Save</button>
+                        <button type = "button" class = "btn btn-danger" (click)="onCancel()">Cancel</button>
+                        
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="queryId">Query Id</label>
+                            <input type = "text" id = "queryId" class="form-control" formControlName="queryId">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="query">Query</label>
+                                <input type = "text" id = "query" class="form-control" formControlName="query">
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="freq">Frequency</label>
+
+                                <!-- <select id="freq" formControlName = "freq">
+                                    <option *ngFor="let freqKey of freqKeys" [value]="freqKey" [selected]="freqKey == queryItem.freq">{{frequencies[freqKey]}}</option>
+                                </select> -->
+                                 <input type = "text" id = "freq" class="form-control" formControlName="freq">
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <input type = "text" id = "status" class="form-control" formControlName="status">
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="optyVer">Optymyze version</label>
+                                <input type = "text" id = "optyVer" class="form-control" formControlName="optyVer">
+                            </div>
+                        </div>
+                </div>
+                
+
+                <br><br>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Attributes :</h3>
+                    </div>
+                </div>
+                <div class="jumbotron">
+                    <div class="row">
+                        <div class="col-xs-12" formArrayName="attributes">
+                                           <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Data Type</th>
+                                                            <th>Column Number</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                
+                                                    <tbody>
+                                                    <div *ngFor="let attributeCtrl of getAttributeControls();let i=index" [formGroupName]="i" >
+                                                                <tr>
+                                                                    <td><input type = "text" class="form-control" formControlName="queryAttribute"></td>
+                                                                    <td><input type = "text" class="form-control" formControlName="attributeDatatype"></td>
+                                                                    <td><input type = "number" class="form-control" formControlName="columnNumber"></td>
+                                                                    <td><button type = "button" class="btn btn-danger" (click)="onDeleteAttributeClick(i)">X</button></td>
+                                                                </tr>
+                                                    </div>
+                                                    </tbody>
+                                
+                                            </table>
+                                            <button type = "button" class="btn btn-success" (click)="onAddAttributeClick()">Add Attribute</button>
+                        </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    

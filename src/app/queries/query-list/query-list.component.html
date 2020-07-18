@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success" (click)="onNewQueryClick()">New Query</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <app-query-item *ngFor="let queryItem of queries" [query]="queryItem"></app-query-item>
+    </div>
+</div>

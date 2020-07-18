@@ -1,0 +1,12 @@
+<div *ngIf = "sqsJson">
+    <div class="row">
+            <div class="jumbotron">
+                    <h4>{{queryId | lowercase}}.json</h4>
+                    <pre>{{sqsJson | json}}</pre>
+                      <button type = "button" class = "btn btn-success" (click) = "onDownloadClick()">Download SQS</button>
+                    
+           </div>
+   
+                    
+</div>
+
